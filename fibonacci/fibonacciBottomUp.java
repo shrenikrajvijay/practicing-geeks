@@ -9,16 +9,20 @@ package fibonacci;
  *
  * @author vijayshrenikraj
  */
-public class regularFibonacci {
-    
-    public static void main(String args[]){
+public class fibonacciBottomUp {
+    public static void main(String[] args) {
         System.out.println(fib(15));
     }
     
-    //fibonacci calculator
     public static int fib(int n){
-        if(n<=1) return n;
+        int back2 = 0;
+        int back1 = 1;
+        for(int i=0;i<n-1; i++){
+            int temp = back1 + back2;
+            back2 = back1;
+            back1 = temp;
+        }
+        return back1;
         
-        return fib(n-1)+fib(n-2);
     }
 }
